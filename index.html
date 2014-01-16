@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app="consumerApp">
+  <head>
+    <title>Angular Consumer</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="js/controller.js"></script>
+  </head>
+  <body>
+    <h2>QueenBee Angular Consumer</h2>
+    <div ng-controller="EventCtrl">
+	<div id="search-area" style="padding-bottom:30px;">
+	 	Search: <input ng-model="query">
+        </div>
+	<div id="data-area">
+		<table border="1">
+		    <tr>
+			<th>Action</th>
+			<th>Description</th>
+			<th>Time</th>
+		    </tr>
+		    <tr ng-repeat="event in events  | filter:query">
+			<td align="center">{{event["action"]}}</td>
+			<td align="center">{{event["description"]}}</td>
+		        <td align="center">{{event["created_at"]}}</td>
+		    </tr>
+		</table>
+	</div>
+    </div>
+
+  </body>
+</html>
