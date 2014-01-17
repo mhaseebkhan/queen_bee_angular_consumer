@@ -8,7 +8,7 @@
     var base_url, token;
     $scope.uid = "";
     $scope.actorEvents = "";
-    token = "e2b0d1626176758db87335875634bbc8";
+    token = "bf30c4634814204d530b6a773f3d1c8c";
     base_url = "http://localhost:3024/api/";
     $http({
       method: "GET",

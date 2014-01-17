@@ -1,35 +1,56 @@
 <!doctype html>
 <html ng-app="consumerApp">
   <head>
-    <title>Actor Consumer</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-    <script  src="js/controller.js"></script>
+    <title>QueenBee API Angular Consumer app</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
+    <script src="js/controller.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+      .header {
+        margin-bottom: 30px;
+        padding-left: 0;
+        padding-right: 0;
+        border-bottom: 1px solid #e5e5e5;
+      }
+    </style>
   </head>
   <body>
-    <h2>QueenBee Angular Actor Consumer</h2>
+    <div class="container">
+      <div class="header">
+        <h3>QueenBee API Angular Consumer app</h3>
+      </div>
+      
+      <div class="row marketing" ng-controller="EventCtrl">
+        <h3>Actor Events</h3>
+        <form ng-submit="findActor()" class="well form-inline" role="form">
+          <div class="form-group">
+            <input type="text" ng-model="uid" placeholder="Enter Actor UID" class="form-control">
+          </div> 
+          <button type="submit" class="btn btn-primary">Find</button>    
+        </form>
 
-<div ng-controller="EventCtrl">
-    <div id="actors">
-     <h3>Actor Events</h3>
-     <form ng-submit="findActor()">
-      <input type="text" ng-model="uid" placeholder="Enter Actor UID">
-      <input type="submit" value="Find">
-     </form>
-     <div id="actor-events-data-area" style="padding-top:30px;display:none;">
-      <table border="1">
-        <tr>
-	  <th>Action</th>
-	  <th>Description</th>
-	  <th>Time</th>
-	</tr>
-	  <tr ng-repeat="actorevent in actorEvents">
-	    <td align="center">{{actorevent["action"]}}</td>
-            <td align="center">{{actorevent["description"]}}</td>
-	    <td align="center">{{actorevent["created_at"]}}</td>
-	  </tr>
-      </table>
-     </div>
-    </div>
-</div>
+        <div id="actor-events-data-area" style="padding-top:30px;display:none;">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Action</th>
+                <th>Description</th>
+                <th>URL</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+              <tr ng-repeat="actorevent in actorEvents">
+                <td>{{actorevent.action}}</td>
+                <td>{{actorevent.description}}</td>
+                <td>{{actorevent.url}}</td>
+                <td>{{actorevent.created_at}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div> <!-- actor-events -->
+      </div> <!-- row -->
+    </div> <!-- container -->
   </body>
 </html>

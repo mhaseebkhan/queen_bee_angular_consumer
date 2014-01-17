@@ -1,34 +1,54 @@
 <!doctype html>
 <html ng-app="consumerApp">
   <head>
-    <title>Event Consumer</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <title>QueenBee API Angular Consumer app</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
     <script src="js/controller.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+      .header {
+        margin-bottom: 30px;
+        padding-left: 0;
+        padding-right: 0;
+        border-bottom: 1px solid #e5e5e5;
+      }
+    </style>
   </head>
   <body>
-    <h2>QueenBee Angular Event Consumer</h2>
+    <div class="container">
+      <div class="header">
+        <h3>QueenBee API Angular Consumer app</h3>
+      </div>
 
-<div ng-controller="EventCtrl">
-    <div id="events">
-     <h3>All events</h3>
-     <div id="search-area">
-      Search: <input ng-model="query">
-     </div>
-     <div id="all-events-data-area" style="padding-top:30px;">
-      <table border="1">
-        <tr>
-	  <th>Action</th>
-	  <th>Description</th>
-	  <th>Time</th>
-	</tr>
-	  <tr ng-repeat="event in events  | filter:query">
-	    <td align="center">{{event["action"]}}</td>
-            <td align="center">{{event["description"]}}</td>
-	    <td align="center">{{event["created_at"]}}</td>
-	  </tr>
-      </table>
-     </div>
-    </div>
-</div>
+      <div class="row marketing" ng-controller="EventCtrl">
+        <div id="search-area" class="form-group well" style="padding-bottom:30px;">
+          <label>Search</label>
+          <input ng-model="query" class="form-control" placeholder="Filter events">  
+        </div>
+        <div id="data-area">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Action</th>
+                <th>Description</th>
+                <th>Actor</th>
+                <th>URL</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+                
+            <tbody>
+              <tr ng-repeat="event in events | filter:query">
+                <td>{{event.action}}</td>
+                <td>{{event.description}}</td>
+                <td>{{event.url}}</td>
+                <td>{{event.actor.name}}</td>
+                <td>{{event.created_at}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div> <!-- end row -->
+    </div> <!-- end container -->
   </body>
 </html>
