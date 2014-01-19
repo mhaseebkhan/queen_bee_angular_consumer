@@ -22,7 +22,7 @@
     return $scope.findActor = function() {
       var api_url;
       if ($scope.uid !== "") {
-        api_url = base_url + "actors/" + $scope.uid + "/events";
+        api_url = base_url + "actors/" + $scope.uid + "/list_events";
         return $http({
           method: "GET",
           url: api_url,

@@ -14,7 +14,7 @@ consumerApp.controller "EventCtrl", ($scope, $http) ->
 
   $scope.findActor = ->
     unless $scope.uid is ""
-      api_url = base_url + "actors/" + $scope.uid + "/events"
+      api_url = base_url + "actors/" + $scope.uid + "/list_events"
       $http(
         method: "GET"
         url: api_url
