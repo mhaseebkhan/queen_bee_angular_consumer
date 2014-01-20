@@ -12,6 +12,24 @@
         padding-right: 0;
         border-bottom: 1px solid #e5e5e5;
       }
+      .label-answered, .label-attempted, .label-attended, .label-commented, .label-completed {
+        background-color: #999;
+      }
+      .label-imported,  .label-interacted, .label-experienced {
+        background-color: #428bca;
+      }
+      .label-launched, .label-mastered, .label-passed, .label-progressed, .label-registered {
+        background-color: #5cb85c;
+      }
+      .label-scored, .label-shared, .label-terminated, .label-responded, .label-resumed {
+        background-color: #5bc0de;
+      }
+      .label-asked, .label-preferred, .label-initialized {
+        background-color: #f0ad4e;
+      }
+      .label-suspended, .label-voided, .label-exited, .label-failed {
+        background-color: #d9534f;
+       }  
     </style>
   </head>
   <body>
@@ -30,6 +48,8 @@
         </form>
 
         <div id="actor-events-data-area" style="padding-top:30px;display:none;">
+          <img ng-src="images/{{uid}}.jpg" class="thumbnail" width="171px" height="180px">
+          <h4>Events for #<span ng-bind="uid"></span></h4>
           <table class="table table-striped">
             <thead>
               <tr>
@@ -42,7 +62,7 @@
             
             <tbody>
               <tr ng-repeat="actorevent in actorEvents">
-                <td>{{actorevent.action}}</td>
+                <td><span class="label label-{{actorevent.action}}">{{actorevent.action}}</span></td>
                 <td>{{actorevent.description}}</td>
                 <td>{{actorevent.url}}</td>
                 <td>{{actorevent.created_at}}</td>
