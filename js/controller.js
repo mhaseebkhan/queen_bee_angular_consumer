@@ -8,8 +8,8 @@
     var base_url, token;
     $scope.uid = "";
     $scope.actorEvents = "";
-    token = "bf30c4634814204d530b6a773f3d1c8c";
-    base_url = "http://localhost:3024/api/";
+    token = "54a65290fd6595a64a7a8071e38a7026";
+    base_url = "https://queen-bee-api.herokuapp.com/api/";
     $http({
       method: "GET",
       url: base_url + "events",
