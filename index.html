@@ -89,7 +89,7 @@
                 </thead>
                 
                 <tbody>
-                  <tr ng-repeat="actorevent in actorEvents">
+                  <tr ng-repeat="actorevent in actorEvents | orderBy:'created_at':true">
                     <td><span class="label label-{{actorevent.action}}">{{actorevent.action}}</span></td>
                     <td>{{actorevent.description}}</td>
                     <td><a href="{{actorevent.url}}">{{actorevent.url}}</a></td>
